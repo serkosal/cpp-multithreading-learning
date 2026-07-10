@@ -12,11 +12,12 @@ void add(int n) {
 }
 
 int main() {
+    std::locale::global(std::locale(""));
     std::thread t(add, 1'000'000);
     add(1'000'000);
     t.join();
 
-    std::println("the value of the counter is: {}", counter);
+    std::println("the value of the counter is: {:L}", counter);
 
     return 0;
 }
